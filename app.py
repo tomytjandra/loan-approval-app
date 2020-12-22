@@ -1,8 +1,8 @@
 from flask import Flask, render_template, url_for, flash, redirect, Markup
 from forms import PredictionForm
-from pycaret.classification import load_model
 from pandas import DataFrame
 import os
+import joblib
 
 app = Flask(__name__)
 
@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = '686ae18682ce71b6e620dfea8995d735'
 
 # load model pipeline
-model = load_model('models/loan_model_LogisticRegression')
+model = joblib.load('models/loan_model_LogisticRegression.pkl')
 
 @app.route('/')
 @app.route('/home')
