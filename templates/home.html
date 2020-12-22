@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+<!-- overrides block content on layout.html -->
+{% block content %}
+    <!--https://dphi.tech/practice/challenge/54-->
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <h3 class="article-title">Background</h3>
+            </div>
+            <img src="https://dphi-courses.s3.ap-south-1.amazonaws.com/Datathons/loan.png" class="img-fluid" alt="">
+            <br> <br>
+            <p class="article-content lead">A loan application is used by borrowers to apply for a loan. Through the loan application, borrowers reveal key details about their finances to the lender. The loan application is crucial to determining whether the lender will grant the request for funds or credit.</p>
+        </div>
+    </article>
+
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <h3 class="article-title">Problem Statement</h3>
+            </div>
+            <p class="article-content lead">The director of SZE bank identified that going through the loan applications to filter the people who can be granted loans or need to be rejected is a tedious and time-consuming process. He wants to automate it and increase his bank’s efficiency.</p>
+        </div>
+    </article>
+
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <h3 class="article-title">Objective</h3>
+            </div>
+            <p class="article-content lead">The idea behind this Machine Learning project is to build a model and web application that the bank can use to classify if a user can be granted a loan or not.</p>
+        </div>
+    </article>
+
+{% endblock content %}

@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+<!-- overrides block content on layout.html -->
+{% block content %}
+    <!-- Registration Form -->
+    <div class="content-section">
+        <form method="POST" action="">
+
+            {{ form.hidden_tag() }}
+            
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">
+                    Applicant Information
+                    <small class="text-muted align-right" style="font-size: 10px;">
+                        (hover on the field for data description)
+                    </small>
+                </legend>
+
+                {% for field in form %}
+                    {% if field.type in field_list %}
+                        <div class="form-group align-items-center row">
+                            <!-- label -->
+                            {{ field.label(class="form-control-label col-md-5") }}
+
+                            <!-- input field -->
+                            {% if field.type != "SelectField" %}
+                                <!-- numeric field -->
+                                {% if field.errors %}
+                                    {{ field(class="form-control col-md-6 is-invalid", title=field.description[-1]) }}
+                                    <div class="input-group-prepend col-md-1">
+                                        <div class="input-group-text">{{ field.description[0] }}</div>
+                                    </div>
+
+                                    <!-- print validation error if errors -->
+                                    <div class="invalid-feedback col-md-6 offset-md-5">
+                                        {% for error in field.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    <!-- if not error -->
+                                    {{ field(class="form-control col-md-6", title=field.description[-1]) }}
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">{{ field.description[0] }}</div>
+                                    </div>
+                                {% endif %}
+                            {% else %}
+                                <!-- SelectField -->
+                                {{ field(class="form-control col-md-7", title=field.description[-1]) }}
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}         
+            </fieldset>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

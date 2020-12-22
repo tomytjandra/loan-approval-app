@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Link to static files -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+    {% if title %}
+        <title>Loan Approval - {{ title }}</title>
+    {% else %}
+        <title>Loan Approval</title>
+    {% endif %}
+</head>
+<body>
+
+    <!-- source: https://github.com/CoreyMSchafer/code_snippets/blob/master/Python/Flask_Blog/snippets/navigation.html -->
+    <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+          <div class="container">
+            <a class="navbar-brand mr-4" href="/">Loan Approval</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggle">
+              <div class="navbar-nav mr-auto">
+                <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
+                <a class="nav-item nav-link" href="{{ url_for('prediction') }}">Prediction</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+    </header>
+
+    <!-- source: https://github.com/CoreyMSchafer/code_snippets/blob/master/Python/Flask_Blog/snippets/main.html -->
+    <main role="main" class="container">
+        <div class="row">
+          <div class="col-md-8">
+
+            <!-- display flash messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="alert alert-{{ category }}">
+                    {{ message }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+
+            {% block content %}
+            {% endblock %}
+          </div>
+          
+          <div class="col-md-4">
+            <div class="content-section">
+              <div class="article-metadata">
+                <h3 class="article-title">
+                  Dataset
+                  <small class="text-muted" style="font-size: 15px;">
+                      <a href="https://raw.githubusercontent.com/dphi-official/Datasets/master/Loan_Data/loan_train.csv">
+                          [source]
+                      </a>
+                  </small>
+                </h3>
+              </div>
+
+              <p class="article-content text-muted" style="text-align:justify">The dataset contains information about Loan Applicants. There are 12 independent columns and 1 dependent column. This dataset includes attributes like Loan ID, gender, if the loan applicant is married or not, the level of education, applicant’s income etc.</p>
+            </div>
+
+            <div class="content-section">
+              <div class="article-metadata">
+                <h3 class="article-title">
+                  References
+                </h3>
+              </div>
+
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-light">
+                  <a href="https://dphi.tech/practice/challenge/54">DPhi Datathon 54</a>
+                </li>
+                <li class="list-group-item list-group-item-light">
+                  <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/">Bootstrap v5.0</a>
+                </li>
+                <li class="list-group-item list-group-item-light">
+                  <a href="https://github.com/CoreyMSchafer/code_snippets/tree/master/Python/Flask_Blog">Corey Schafer's Code Snippets</a>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+    </main>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
