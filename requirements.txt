@@ -1,5 +1,6 @@
 flask==1.1.2
 flask_wtf==0.14.3
+joblib==1.0.0
 pandas==1.1.5
 numpy==1.19.3
 wtforms==2.3.3
