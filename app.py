@@ -1,7 +1,6 @@
 from flask import Flask, render_template, url_for, flash, redirect, Markup
 from forms import PredictionForm
 from pandas import DataFrame
-import os
 import joblib
 
 app = Flask(__name__)
@@ -51,5 +50,4 @@ def prediction():
     return render_template('prediction.html', title='Predict', form=form, field_list=field_list)
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    app.run(port=port, debug=True)
+    app.run(debug=True)
