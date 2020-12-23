@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import SelectField, DecimalField, IntegerField, SubmitField
-from wtforms.validators import DataRequired 
-from wtforms.widgets import html5
+from wtforms import SelectField, IntegerField, SubmitField
+from wtforms.validators import DataRequired
+from wtforms.widgets.html5 import NumberInput
 
 class PredictionForm(FlaskForm):
 
@@ -42,34 +42,31 @@ class PredictionForm(FlaskForm):
         description=['If the applicant is self-employed or not'],
         choices=['No', 'Yes'])
 
-    applicant_income = DecimalField(
+    applicant_income = IntegerField(
         id='ApplicantIncome',
         label='Applicant Income',
         default=0,
-        places=2,
         description=['USD', 'The amount of income the applicant earns'],
         validators=[DataRequired('Value must be greater than zero!')],
-        widget=html5.NumberInput(min=0, max=999999, step=0.01)
+        widget=NumberInput(min=0, max=999999)
     )
 
-    coapplicant_income = DecimalField(
+    coapplicant_income = IntegerField(
         id='CoapplicantIncome',
         label='Co-applicant Income',
         default=0,
-        places=2,
         description=['USD', 'The amount of income the co-applicant earns'],
         validators=[DataRequired('Value must be greater than zero!')],
-        widget=html5.NumberInput(min=0, max=999999, step=0.01)
+        widget=NumberInput(min=0, max=999999)
     )
 
-    loan_amount = DecimalField(
+    loan_amount = IntegerField(
         id='LoanAmount',
         label='Loan Amount',
         default=0,
-        places=2,
         description=['USD', 'The amount of loan the applicant has requested for'],
         validators=[DataRequired('Value must be greater than zero!')],
-        widget=html5.NumberInput(min=0, max=999999, step=0.01)
+        widget=NumberInput(min=0, max=999999)
     )
 
     loan_amount_term = IntegerField(
@@ -78,7 +75,7 @@ class PredictionForm(FlaskForm):
         default=0,
         description=['days', 'The no. of days over which the loan will be paid'],
         validators=[DataRequired('Value must be greater than zero!')],
-        widget=html5.NumberInput(min=0, max=9999)
+        widget=NumberInput(min=0, max=9999)
     )
 
     credit_history = SelectField(

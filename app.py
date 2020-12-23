@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, flash, redirect, Markup
+from flask import Flask, render_template, url_for, flash, request, Markup
 from forms import PredictionForm
 from pandas import DataFrame
 import joblib
@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = '686ae18682ce71b6e620dfea8995d735'
 
 # load model
-model = joblib.load('models/loan_model_LogisticRegression.pkl')
+model = joblib.load("models/loan_model_logreg.pkl")
 
 @app.route('/')
 @app.route('/home')
@@ -27,9 +27,10 @@ def prediction():
                             for field in form
                             if field.type in field_list])
         new_df = DataFrame([new_data])
-        
+        new_df['Credit_History'] = new_df['Credit_History'].astype('float')
+
         # predict
-        pred_prob = model.predict_proba(new_df)[0,1]
+        pred_prob = model.predict_proba(new_df)[0, 1]
         if pred_prob > 0.5:
             conclusion = 'APPROVED :)'
             category = 'success'
