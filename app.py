@@ -8,7 +8,7 @@ app = Flask(__name__)
 # Secret key protect against modifying cookies and cross-site request forgery attacks
 app.config['SECRET_KEY'] = '686ae18682ce71b6e620dfea8995d735'
 
-# load model pipeline
+# load model
 model = joblib.load('models/loan_model_LogisticRegression.pkl')
 
 @app.route('/')
@@ -22,12 +22,12 @@ def prediction():
     field_list = ["SelectField", "DecimalField", "IntegerField"]
 
     if form.validate_on_submit():
-        # convert input data as dataframe
+        # convert input data as dataframe and run through pipeline
         new_data = dict([(field.id, field.data)
                             for field in form
                             if field.type in field_list])
         new_df = DataFrame([new_data])
-
+        
         # predict
         pred_prob = model.predict_proba(new_df)[0,1]
         if pred_prob > 0.5:
