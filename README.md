@@ -16,7 +16,7 @@ This app was made as the final assignment of [DPhi's Online Machine Learning Boo
         |
         ├─── static: css files
         │
-        └──── templates: html files
+        └─── templates: html files
 
 - Application Files:
     - `app.py`: main application
