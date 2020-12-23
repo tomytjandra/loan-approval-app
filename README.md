@@ -1,22 +1,18 @@
 # Loan Approval Application
 
-> Deployed web application: https://loan-approval-app.herokuapp.com/
+Deployed link:
+- Heroku: https://loan-approval-app.herokuapp.com/
+- Azure: https://loan-approval-app.azurewebsites.net/
 
 This app was made as the final assignment of [DPhi's Online Machine Learning Bootcamp](https://dphi.tech/bootcamps/machine-learning-online-bootcamp/). The objective of this Machine Learning project is to build a model and web application that the bank can use to classify if a user can be granted a loan or not.
 
 ## Project Structure
 
 - Folders:
-
-        loan-approval-app
-        │
-        ├─── dev: development scripts
-        │
-        ├─── models: pre-trained model (scikit-learn pipeline)
-        |
-        ├─── static: css files
-        │
-        └─── templates: html files
+    - `dev`: development scripts
+    - `models`: pickled pre-trained model (scikit-learn pipeline)
+    - `static`: css files
+    - `template`: html files
 
 - Application Files:
     - `app.py`: main application
