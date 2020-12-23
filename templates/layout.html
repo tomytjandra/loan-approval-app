@@ -8,8 +8,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <!-- Link to static files -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-social.css') }}">
 
     {% if title %}
         <title>Loan Approval - {{ title }}</title>
@@ -58,12 +62,14 @@
           </div>
           
           <div class="col-md-4">
+
+            <!-- Dataset -->
             <div class="content-section">
               <div class="article-metadata">
                 <h3 class="article-title">
                   Dataset
                   <small class="text-muted" style="font-size: 15px;">
-                      <a href="https://raw.githubusercontent.com/dphi-official/Datasets/master/Loan_Data/loan_train.csv">
+                      <a href="https://raw.githubusercontent.com/dphi-official/Datasets/master/Loan_Data/loan_train.csv" target="_blank">
                           [source]
                       </a>
                   </small>
@@ -73,6 +79,7 @@
               <p class="article-content text-muted" style="text-align:justify">The dataset contains information about Loan Applicants. There are 12 independent columns and 1 dependent column. This dataset includes attributes like Loan ID, gender, if the loan applicant is married or not, the level of education, applicant’s income etc.</p>
             </div>
 
+            <!-- References -->
             <div class="content-section">
               <div class="article-metadata">
                 <h3 class="article-title">
@@ -82,16 +89,45 @@
 
               <ul class="list-group">
                 <li class="list-group-item list-group-item-light">
-                  <a href="https://dphi.tech/practice/challenge/54">DPhi Datathon 54</a>
+                  <a href="https://dphi.tech/practice/challenge/54" target="_blank">DPhi Datathon 54</a>
                 </li>
                 <li class="list-group-item list-group-item-light">
-                  <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/">Bootstrap v5.0</a>
+                  <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/" target="_blank">Bootstrap v5.0</a>
                 </li>
                 <li class="list-group-item list-group-item-light">
-                  <a href="https://github.com/CoreyMSchafer/code_snippets/tree/master/Python/Flask_Blog">Corey Schafer's Code Snippets</a>
+                  <a href="https://github.com/CoreyMSchafer/code_snippets/tree/master/Python/Flask_Blog" target="_blank">Corey Schafer's Code Snippets</a>
                 </li>
               </ul>
 
+            </div>
+
+            <!-- About -->
+            <div class="content-section">
+              <div class="article-metadata">
+                <h3 class="article-title">
+                  About
+                </h3>
+              </div>
+
+              <p class="article-content text-muted" style="text-align:justify">This app was made as the final assignment of <a href="https://dphi.tech/bootcamps/machine-learning-online-bootcamp/" target="_blank">DPhi's One Machine Learning Bootcamp</a>, deployed on December 24th, 2020.</p>
+              
+              <div style="text-align:center">
+
+                <p class="text-muted">Connect with me on social media</p>
+
+                <a class="btn btn-social-icon btn-github" href="https://github.com/tomytjandra" target="_blank">
+                  <span class="fa fa-github" style="color: white;"></span>
+                </a>
+
+                <a class="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com/in/tomytjandra" target="_blank">
+                  <span class="fa fa-linkedin" style="color: white;"></span>
+                </a>
+
+                <a class="btn btn-social-icon btn-google" href="mailto:tomytjandra@gmail.com" target="_blank">
+                  <span class="fa fa-google" style="color: white;"></span>
+                </a>
+              </div>
+              
             </div>
           </div>
         </div>
