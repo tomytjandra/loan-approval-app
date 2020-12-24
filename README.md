@@ -40,3 +40,10 @@ List of dependencies and its version can be found on `requirements.txt`.
 - [DPhi Datathon 54](https://dphi.tech/practice/challenge/54)
 - [Bootstrap v5.0](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
 - [Corey Schafer's Code Snippets](https://github.com/CoreyMSchafer/code_snippets/tree/master/Python/Flask_Blog)
+
+## Future Improvement Ideas
+
+- Improve classifier performance
+- Create an API endpoint for the prediction
+- Create new page for batch prediction, using upload and download file
+- Create new page for explainable results, using LIME or SHAP
