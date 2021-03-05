@@ -1,0 +1,91 @@
+---
+title: "API Example: Loan Approval Using R"
+author: "Tomy Tjandra"
+output: rmdformats::readthedown
+---
+
+# Single Prediction
+
+Load library for HTTP Request:
+
+```{r}
+library(httr)
+```
+
+Prepare single data in a list:
+
+```{r}
+single_data <- list(
+  Gender = 'Male',
+  Married = 'No',
+  Dependents = '0',
+  Education = 'Graduate',
+  Self_Employed = 'No',
+  ApplicantIncome = 10000,
+  CoapplicantIncome = 10000,
+  LoanAmount = 1000,
+  Loan_Amount_Term = 30,
+  Credit_History = 1.0,
+  Property_Area = 'Urban'
+)
+```
+
+Make a POST Request to the API endpoint in json format:
+
+```{r}
+r <- POST(url = 'https://loan-approval-app.herokuapp.com/result',
+          body = single_data,
+          encode = 'json')
+r
+```
+
+See the content of the output:
+
+```{r}
+content(r)
+```
+
+# Multiple Prediction
+
+Prepare input data, we are using 5 rows only:
+
+```{r}
+test_data <- read.csv('https://raw.githubusercontent.com/dphi-official/Datasets/master/Loan_Data/loan_test.csv')
+input_data <- head(test_data, 5)
+knitr::kable(input_data)
+```
+
+Data reshaping from dataframe to multiple lists:
+
+```{r}
+library(purrr)
+
+input_list <- purrr::transpose(input_data)
+input_list
+```
+
+Loop through the list to make multiple POST Request (5 times in this case) to the API endpoint in json format:
+
+```{r}
+df_result <- data.frame()
+
+for (i in 1:nrow(input_data)){
+  r <- POST(url = 'https://loan-approval-app.herokuapp.com/result',
+            body = input_list[[i]],
+            encode = 'json')
+  
+  single_result <- data.frame(
+    Loan_ID = input_list[[i]]$Loan_ID,
+    Probability = content(r)[[1]],
+    Class = content(r)[[2]]
+  )
+  
+  df_result <- rbind(df_result, single_result)
+}
+```
+
+Store the result in a dataframe:
+
+```{r}
+df_result
+```
