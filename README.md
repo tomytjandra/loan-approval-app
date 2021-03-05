@@ -12,12 +12,13 @@ This app was made as the final assignment of [DPhi's Online Machine Learning Boo
 2. `/prediction`: Prediction form
 3. `/result`: API
     - Return: `[pred_prob, pred_class]`
-    - See `API_Guide.ipynb` for minimal example
+    - See `guide/API_Example.ipynb` for minimal example
 
 ## Project Structure
 
 - Folders:
     - `dev`: development scripts
+    - `guide`: notebook for usage examples
     - `models`: pickled pre-trained model (scikit-learn pipeline)
     - `static`: css files
     - `template`: html files
