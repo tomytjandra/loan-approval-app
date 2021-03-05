@@ -6,6 +6,14 @@ Deployed link:
 
 This app was made as the final assignment of [DPhi's Online Machine Learning Bootcamp](https://dphi.tech/bootcamps/machine-learning-online-bootcamp/). The objective of this Machine Learning project is to build a model and web application that the bank can use to classify if a user can be granted a loan or not.
 
+## Endpoints
+
+1. `/home`: Home page
+2. `/prediction`: Prediction form
+3. `/result`: API
+    - Return: `[pred_prob, pred_class]`
+    - See `API_Guide.ipynb` for minimal example
+
 ## Project Structure
 
 - Folders:
@@ -44,6 +52,5 @@ List of dependencies and its version can be found on `requirements.txt`.
 ## Future Improvement Ideas
 
 - Improve classifier performance
-- Create an API endpoint for the prediction
 - Create new page for batch prediction, using upload and download file
 - Create new page for explainable results, using LIME or SHAP
