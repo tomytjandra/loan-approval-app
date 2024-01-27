@@ -2,7 +2,6 @@
 
 Deployed link:
 - Heroku: https://loan-approval-app.herokuapp.com/
-- Azure: https://loan-approval-app.azurewebsites.net/
 
 This app was made as the final assignment of [DPhi's Online Machine Learning Bootcamp](https://dphi.tech/bootcamps/machine-learning-online-bootcamp/). The objective of this Machine Learning project is to build a model and web application that the bank can use to classify if a user can be granted a loan or not.
 
@@ -34,7 +33,7 @@ This app was made as the final assignment of [DPhi's Online Machine Learning Boo
 
 ## Dependencies
 
-The app is built using Python 3.7.9, with the following dependencies:
+The app is built using Python 3.12.1, with the following dependencies:
 
 - `Flask`: web framework
 - `Flask-WTF`: forms validation

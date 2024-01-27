@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import SelectField, IntegerField, SubmitField
 from wtforms.validators import DataRequired
-from wtforms.widgets.html5 import NumberInput
+from wtforms.widgets import NumberInput
 
 class PredictionForm(FlaskForm):
 

@@ -1,4 +1,5 @@
-from flask import Flask, render_template, url_for, flash, request, Markup, jsonify
+from flask import Flask, render_template, url_for, flash, request, jsonify
+from markupsafe import Markup
 from forms import PredictionForm
 from pandas import DataFrame
 import joblib
