@@ -33,7 +33,7 @@ single_data <- list(
 Make a POST Request to the API endpoint in json format:
 
 ```{r}
-r <- POST(url = 'https://loan-approval-app.herokuapp.com/result',
+r <- POST(url = 'https://loan-approval-app-facb8c5d72fa.herokuapp.com/result',
           body = single_data,
           encode = 'json')
 r
@@ -70,7 +70,7 @@ Loop through the list to make multiple POST Request (5 times in this case) to th
 df_result <- data.frame()
 
 for (i in 1:nrow(input_data)){
-  r <- POST(url = 'https://loan-approval-app.herokuapp.com/result',
+  r <- POST(url = 'https://loan-approval-app-facb8c5d72fa.herokuapp.com/result',
             body = input_list[[i]],
             encode = 'json')
   

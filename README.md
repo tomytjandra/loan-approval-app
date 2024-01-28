@@ -1,7 +1,6 @@
 # Loan Approval Application
 
-Deployed link:
-- Heroku: https://loan-approval-app.herokuapp.com/
+Deployed link: https://loan-approval-app-facb8c5d72fa.herokuapp.com/
 
 This app was made as the final assignment of [DPhi's Online Machine Learning Bootcamp](https://dphi.tech/bootcamps/machine-learning-online-bootcamp/). The objective of this Machine Learning project is to build a model and web application that the bank can use to classify if a user can be granted a loan or not.
 
